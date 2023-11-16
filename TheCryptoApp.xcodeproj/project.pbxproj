@@ -14,6 +14,7 @@
 		E48F2D852B06735A003EEE27 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D842B06735A003EEE27 /* Color.swift */; };
 		E48F2D8B2B067C55003EEE27 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D8A2B067C55003EEE27 /* HomeView.swift */; };
 		E48F2D8F2B067E4B003EEE27 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D8E2B067E4B003EEE27 /* CircleButtonView.swift */; };
+		E48F2D912B068E76003EEE27 /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D902B068E76003EEE27 /* CircleButtonAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		E48F2D842B06735A003EEE27 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		E48F2D8A2B067C55003EEE27 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E48F2D8E2B067E4B003EEE27 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
+		E48F2D902B068E76003EEE27 /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				E48F2D8E2B067E4B003EEE27 /* CircleButtonView.swift */,
+				E48F2D902B068E76003EEE27 /* CircleButtonAnimationView.swift */,
 			);
 			path = CircleButton;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				E48F2D762B06612B003EEE27 /* TheCryptoAppApp.swift in Sources */,
 				E48F2D8F2B067E4B003EEE27 /* CircleButtonView.swift in Sources */,
 				E48F2D852B06735A003EEE27 /* Color.swift in Sources */,
+				E48F2D912B068E76003EEE27 /* CircleButtonAnimationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
