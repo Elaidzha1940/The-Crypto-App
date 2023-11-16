@@ -19,8 +19,13 @@ struct HomeView: View {
             
             // content layer
             VStack {
-                Text("Head")
-                
+                HStack {
+                    CircleButtonView(iconName: "info")
+                    Spacer()
+                    Text("Head")
+                    Spacer()
+                    CircleButtonView(iconName: "chevron.right")
+                }
                 Spacer(minLength: 0)
                 
             }
@@ -29,5 +34,8 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    NavigationView {
+        HomeView()
+        //.navigationBarHidden(true)
+    }
 }
