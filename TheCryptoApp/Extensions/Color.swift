@@ -12,10 +12,10 @@ import SwiftUI
 
 extension Color {
     
-    
+    static let theme = ColorTheme()
 }
 
-struct ColotTheme {
+struct ColorTheme {
     
     let accent = Color("AccentColor")
     let background = Color("BackgroundColor")
