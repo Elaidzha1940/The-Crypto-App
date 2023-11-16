@@ -11,6 +11,7 @@
 		E48F2D782B06612B003EEE27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D772B06612B003EEE27 /* ContentView.swift */; };
 		E48F2D7A2B06612B003EEE27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48F2D792B06612B003EEE27 /* Assets.xcassets */; };
 		E48F2D7D2B06612B003EEE27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48F2D7C2B06612B003EEE27 /* Preview Assets.xcassets */; };
+		E48F2D852B06735A003EEE27 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D842B06735A003EEE27 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		E48F2D772B06612B003EEE27 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E48F2D792B06612B003EEE27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E48F2D7C2B06612B003EEE27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E48F2D842B06735A003EEE27 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +53,7 @@
 		E48F2D742B06612B003EEE27 /* TheCryptoApp */ = {
 			isa = PBXGroup;
 			children = (
-				E48F2D832B0670E7003EEE27 /* New Group */,
+				E48F2D832B0670E7003EEE27 /* Extensions */,
 				E48F2D752B06612B003EEE27 /* TheCryptoAppApp.swift */,
 				E48F2D772B06612B003EEE27 /* ContentView.swift */,
 				E48F2D792B06612B003EEE27 /* Assets.xcassets */,
@@ -68,11 +70,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E48F2D832B0670E7003EEE27 /* New Group */ = {
+		E48F2D832B0670E7003EEE27 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E48F2D842B06735A003EEE27 /* Color.swift */,
 			);
-			path = "New Group";
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +150,7 @@
 			files = (
 				E48F2D782B06612B003EEE27 /* ContentView.swift in Sources */,
 				E48F2D762B06612B003EEE27 /* TheCryptoAppApp.swift in Sources */,
+				E48F2D852B06735A003EEE27 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
