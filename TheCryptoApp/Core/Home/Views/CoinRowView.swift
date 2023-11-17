@@ -27,7 +27,7 @@ struct CoinRowView: View {
                 .foregroundColor(Color.theme.accent)
             Spacer()
             VStack(alignment: .trailing) {
-                Text("\(coin.currentPrice)")
+                Text(coin.currentPrice.asCurrencyWith6Decimals())
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundColor(Color.theme.accent)
                 Text("\(coin.priceChangePercentage24H ?? 0)%")
