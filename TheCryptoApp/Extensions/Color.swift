@@ -19,7 +19,7 @@ struct ColorTheme {
     
     let accent = Color("AccentColor")
     let background = Color("BackgroundColor")
-    let mint = Color("GreenColor")
-    let pink = Color("RedColor")
+    let darkgreen = Color("GreenColor")
+    let darkred = Color("RedColor")
     let secondaryText = Color("SecondaryTextColor")
 }

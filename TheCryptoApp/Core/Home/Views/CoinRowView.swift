@@ -14,13 +14,35 @@ struct CoinRowView: View {
     
     var body: some View {
         
-        VStack {
-            
-            Text(coin.name)
+        HStack(spacing: 0) {
+            Text("\(coin.rank)")
+                .font(.system(size: 16, weight: .medium, design: .rounded))
+                .foregroundColor(Color.theme.secondaryText)
+                .frame(minWidth: 30)
+            Circle()
+                .frame(width: 30, height: 30)
+            Text(coin.symbol.uppercased())
+                .font(.system(size: 18, weight: .semibold, design: .rounded))
+                .padding(.leading, 6)
+                .foregroundColor(Color.theme.accent)
+            Spacer()
+            VStack(alignment: .trailing) {
+                Text("\(coin.currentPrice)")
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
+                    .foregroundColor(Color.theme.accent)
+                Text("\(coin.priceChangePercentage24H ?? 0)%")
+                    .foregroundColor(
+                        (coin.priceChangePercentage24H ?? 0) >= 0 ?
+                        Color.theme.darkgreen : Color.theme.darkred
+                    )
+            }
         }
     }
 }
 
-#Preview {
-    CoinRowView(coin: dev.coin)
+struct CoinRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        CoinRowView(coin: dev.coin)
+        
+    }
 }
