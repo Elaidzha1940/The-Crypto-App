@@ -11,6 +11,7 @@ import SwiftUI
 
 struct CoinRowView: View {
     let coin: CoinModel
+    let showHoldingsColumn: Bool
     
     var body: some View {
         
@@ -26,23 +27,32 @@ struct CoinRowView: View {
                 .padding(.leading, 6)
                 .foregroundColor(Color.theme.accent)
             Spacer()
+            if showHoldingsColumn{
+                VStack(alignment: .trailing) {
+                    Text(coin.currentHoldingsValue.asCurrencyWith6Decimals())
+                    Text((coin.currentHoldings ?? 0).asNumbeString())
+                }
+                .foregroundColor(Color.theme.accent)
+            }
             VStack(alignment: .trailing) {
                 Text(coin.currentPrice.asCurrencyWith6Decimals())
-                    .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundColor(Color.theme.accent)
-                Text("\(coin.priceChangePercentage24H ?? 0)%")
+                Text(coin.priceChangePercentage24H!.asPresentString())
                     .foregroundColor(
-                        (coin.priceChangePercentage24H ?? 0) >= 0 ?
-                        Color.theme.darkgreen : Color.theme.darkred
+                        coin.priceChangePercentage24H! >= 0 ?
+                        Color.theme.darkgreen :
+                            Color.theme.darkred
                     )
             }
+            .frame(width: UIScreen.main.bounds.width / 3.2, alignment: .trailing)
         }
+        .font(.system(size: 15, weight: .bold, design: .rounded))
     }
 }
 
 struct CoinRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CoinRowView(coin: dev.coin)
+        CoinRowView(coin: dev.coin, showHoldingsColumn: true)
         
     }
 }
