@@ -24,9 +24,25 @@ class CoinDataService {
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .default))
-            .tryMap { (outout) -> Data in
-                guard let response = outout.response as? HTTPURLResponse,
-                      response.statusCode >= 200 && response.statusCode < 300
+            .tryMap { (output) -> Data in
+                guard let response = output.response as? HTTPURLResponse,
+                      response.statusCode >= 200 && response.statusCode < 300 else {
+                    throw URLError(.badServerResponse)
+                }
+                return output.data
             }
+            .receive(on: DispatchQueue.main)
+            .decode(type: [CoinModel].self, decoder: JSONDecoder())
+            .sink { (complition) in
+                switch complition {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            } receiveValue: { (returnedCoins) in
+                self.allCoins = returnedCoins
+            }
+
     }
 }
