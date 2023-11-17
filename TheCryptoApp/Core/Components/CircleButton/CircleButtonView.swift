@@ -2,7 +2,7 @@
 //
 //  Project: TheCryptoApp
 //  File: CircleButtonView.swift
-//  Created by Elaidzha Shchukin
+//  Created by: Elaidzha Shchukin
 //  Date: 16.11.2023
 //
 //  */
