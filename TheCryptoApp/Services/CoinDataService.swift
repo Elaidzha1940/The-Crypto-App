@@ -8,10 +8,14 @@
 //  */
 
 import Foundation
+import Combine
 
 class CoinDataService {
     
     @Published var allCoins: [CoinModel] = []
+    var cancellables = Set<AnyCancellable>()
+    
+    var coinSubscribtion: AnyCancellable?
     
     init() {
         getCoins()
@@ -22,7 +26,7 @@ class CoinDataService {
         guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h")
         else { return }
         
-        URLSession.shared.dataTaskPublisher(for: url)
+       coinSubscribtion = URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .default))
             .tryMap { (output) -> Data in
                 guard let response = output.response as? HTTPURLResponse,
@@ -40,9 +44,11 @@ class CoinDataService {
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-            } receiveValue: { (returnedCoins) in
-                self.allCoins = returnedCoins
+            } receiveValue: { [weak self] (returnedCoins) in
+                self?.allCoins = returnedCoins
+                self?.coinSubscribtion?.cancel()
             }
+            //.store(in: &cancellables)
 
     }
 }
