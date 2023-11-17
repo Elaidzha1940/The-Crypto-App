@@ -12,16 +12,14 @@ import SwiftUI
 
 extension PreviewProvider {
     
-    static var dev: DeveloperProvider {
-        return DeveloperProvider.instance
+    static var dev: DeveloperPreview {
+        return DeveloperPreview.instance
     }
-    
 }
 
-
-class DeveloperProvider {
+class DeveloperPreview {
     
-    static let instance = DeveloperProvider() // Singleton
+    static let instance = DeveloperPreview() // Singleton
     private init() {  }
     
     let coin = CoinModel(

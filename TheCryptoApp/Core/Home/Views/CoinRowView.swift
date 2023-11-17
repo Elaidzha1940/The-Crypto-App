@@ -10,15 +10,17 @@
 import SwiftUI
 
 struct CoinRowView: View {
+    let coin: CoinModel
     
     var body: some View {
         
         VStack {
             
+            Text(coin.name)
         }
     }
 }
 
 #Preview {
-    CoinRowView()
+    CoinRowView(coin: dev.coin)
 }
