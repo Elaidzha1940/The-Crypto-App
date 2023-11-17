@@ -17,40 +17,40 @@ import Foundation
  
  JSON Response:
  {
-     "id": "bitcoin",
-     "symbol": "btc",
-     "name": "Bitcoin",
-     "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-     "current_price": 36202,
-     "market_cap": 707065705932,
-     "market_cap_rank": 1,
-     "fully_diluted_valuation": 759729931543,
-     "total_volume": 26099351964,
-     "high_24h": 37904,
-     "low_24h": 35579,
-     "price_change_24h": -1622.0380417709166,
-     "price_change_percentage_24h": -4.28834,
-     "market_cap_change_24h": -32085146103.808594,
-     "market_cap_change_percentage_24h": -4.34081,
-     "circulating_supply": 19544287,
-     "total_supply": 21000000,
-     "max_supply": 21000000,
-     "ath": 69045,
-     "ath_change_percentage": -47.59293,
-     "ath_date": "2021-11-10T14:24:11.849Z",
-     "atl": 67.81,
-     "atl_change_percentage": 53262.15188,
-     "atl_date": "2013-07-06T00:00:00.000Z",
-     "roi": null,
-     "last_updated": "2023-11-16T23:46:34.975Z",
-     "sparkline_in_7d": {
-       "price": [
-         36401.767595186626,
-         36335.308944018856,
-       ]
-     },
-     "price_change_percentage_24h_in_currency": -4.288340929998626
-   }
+ "id": "bitcoin",
+ "symbol": "btc",
+ "name": "Bitcoin",
+ "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+ "current_price": 36202,
+ "market_cap": 707065705932,
+ "market_cap_rank": 1,
+ "fully_diluted_valuation": 759729931543,
+ "total_volume": 26099351964,
+ "high_24h": 37904,
+ "low_24h": 35579,
+ "price_change_24h": -1622.0380417709166,
+ "price_change_percentage_24h": -4.28834,
+ "market_cap_change_24h": -32085146103.808594,
+ "market_cap_change_percentage_24h": -4.34081,
+ "circulating_supply": 19544287,
+ "total_supply": 21000000,
+ "max_supply": 21000000,
+ "ath": 69045,
+ "ath_change_percentage": -47.59293,
+ "ath_date": "2021-11-10T14:24:11.849Z",
+ "atl": 67.81,
+ "atl_change_percentage": 53262.15188,
+ "atl_date": "2013-07-06T00:00:00.000Z",
+ "roi": null,
+ "last_updated": "2023-11-16T23:46:34.975Z",
+ "sparkline_in_7d": {
+ "price": [
+ 36401.767595186626,
+ 36335.308944018856,
+ ]
+ },
+ "price_change_percentage_24h_in_currency": -4.288340929998626
+ }
  
  */
 
@@ -101,8 +101,16 @@ struct CoinModel: Identifiable, Codable {
         case currentHoldings
     }
     
-    func updateHoldings() -> CoinModel {
-        
+    func updateHoldings(amount: Double) -> CoinModel {
+        return CoinModel(id: id, symbol: symbol, name: name, image: image, currentPrice: currentPrice, marketCap: marketCap, marketCapRank: marketCapRank, fullyDilutedValuation: fullyDilutedValuation, totalVolume: totalVolume, high24H: high24H, low24H: low24H, priceChange24H: priceChange24H, priceChangePercentage24H: priceChangePercentage24H, marketCapChange24H: marketCapChange24H, marketCapChangePercentage24H: marketCapChangePercentage24H, circulatingSupply: circulatingSupply, totalSupply: totalSupply, maxSupply: maxSupply, ath: ath, athChangePercentage: athChangePercentage, athDate: athDate, atl: atl, atlChangePercentage: atlChangePercentage, atlDate: atlDate, lastUpdated: lastUpdated, sparklineIn7D: sparklineIn7D, priceChangePercentage24HInCurrency: priceChangePercentage24HInCurrency, currentHoldings: amount)
+    }
+    
+    var currentHoldingsValue: Double {
+        return (currentHoldings ?? 0) * currentPrice
+    }
+    
+    var rank: Int {
+        return Int(marketCapRank ?? 0)
     }
 }
 
