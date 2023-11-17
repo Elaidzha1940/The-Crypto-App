@@ -20,7 +20,9 @@ extension PreviewProvider {
 class DeveloperPreview {
     
     static let instance = DeveloperPreview() // Singleton
-    private init() {  }
+    private init() { }
+    
+    let HomeVM = HomeViewModel()
     
     let coin = CoinModel(
         id: "bitcoin",
