@@ -17,8 +17,8 @@ class CoinImageService {
     
     var imageSubscription: AnyCancellable?
     
-    init() {
-        //getCoinImage()
+    init(urlString: String) {
+        getCoinImage(urlString: urlString)
     }
     
     private func getCoinImage(urlString: String) {
