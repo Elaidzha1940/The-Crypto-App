@@ -67,7 +67,6 @@
 			children = (
 				E422F12D2B07CE04005A7B5C /* CoinDataService.swift */,
 				E422F1362B0A59C2005A7B5C /* CoinImageService.swift */,
-				E4E70BAD2B0A95CD0095308B /* LocalFileManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -76,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				E422F1302B092AAD005A7B5C /* NetworkingManager.swift */,
+				E4E70BAD2B0A95CD0095308B /* LocalFileManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

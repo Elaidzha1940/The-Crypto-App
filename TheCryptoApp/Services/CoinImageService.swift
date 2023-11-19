@@ -17,13 +17,18 @@ class CoinImageService {
     
     private var imageSubscription: AnyCancellable?
     private let coin: CoinModel
+    private let fileManager = LocalFileManager.instance
     
     init(coin: CoinModel) {
         self.coin = coin
-        getCoinImage()
+        
     }
     
     private func getCoinImage() {
+        
+    }
+    
+    private func downloadCoinImage() {
         print("Downloading image now")
         guard let url = URL(string: coin.image) else { return }
         
