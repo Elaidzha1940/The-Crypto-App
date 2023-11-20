@@ -26,6 +26,7 @@
 		E48F2D962B06F5FF003EEE27 /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D952B06F5FF003EEE27 /* CoinRowView.swift */; };
 		E48F2D982B06F6CC003EEE27 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D972B06F6CC003EEE27 /* PreviewProvider.swift */; };
 		E4E70BAE2B0A95CD0095308B /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E70BAD2B0A95CD0095308B /* LocalFileManager.swift */; };
+		E4E70BB02B0AD8FC0095308B /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E70BAF2B0AD8FC0095308B /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		E48F2D952B06F5FF003EEE27 /* CoinRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowView.swift; sourceTree = "<group>"; };
 		E48F2D972B06F6CC003EEE27 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		E4E70BAD2B0A95CD0095308B /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
+		E4E70BAF2B0AD8FC0095308B /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			children = (
 				E422F1332B0A5736005A7B5C /* CoinImage */,
 				E48F2D8D2B067E34003EEE27 /* CircleButton */,
+				E4E70BAF2B0AD8FC0095308B /* SearchBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				E48F2D762B06612B003EEE27 /* TheCryptoAppApp.swift in Sources */,
 				E48F2D8F2B067E4B003EEE27 /* CircleButtonView.swift in Sources */,
 				E48F2D852B06735A003EEE27 /* Color.swift in Sources */,
+				E4E70BB02B0AD8FC0095308B /* SearchBarView.swift in Sources */,
 				E422F1312B092AAD005A7B5C /* NetworkingManager.swift in Sources */,
 				E48F2D912B068E76003EEE27 /* CircleButtonAnimationView.swift in Sources */,
 				E422F1392B0A5C6B005A7B5C /* CoinImageViewModel.swift in Sources */,
