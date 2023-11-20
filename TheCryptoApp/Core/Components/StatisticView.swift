@@ -14,7 +14,7 @@ struct StatisticView: View {
 
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 4) {
             Text(stat.title)
                 .font(.system(size: 15, weight: .regular, design: .rounded))
                 .foregroundColor(Color.theme.secondaryText)
@@ -23,7 +23,7 @@ struct StatisticView: View {
                 .font(.system(size: 18, weight: .semibold, design: .rounded))
                 .foregroundColor(Color.theme.accent)
             
-            HStack {
+            HStack(spacing: 4) {
                 Image(systemName: "triangle.fill")
                     .font(.system(size: 14, weight: .regular, design: .rounded))
                     .rotationEffect(
@@ -32,13 +32,21 @@ struct StatisticView: View {
                 Text(stat.percentageChange?.asPresentString() ?? "")
                     .font(.system(size: 15, weight: .bold, design: .rounded))
             }
-
+            .foregroundColor((stat.percentageChange ?? 0) >= 0 ? Color.theme.darkgreen : Color.theme.darkred)
+            .opacity(stat.percentageChange == nil ? 0.0 : 1.0)
         }
     }
 }
 
 struct StatisticView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticView(stat: dev.stat1)
+        Group {
+            StatisticView(stat: dev.stat1)
+                .preferredColorScheme(.dark)
+            StatisticView(stat: dev.stat2)
+            
+            StatisticView(stat: dev.stat3)
+                .preferredColorScheme(.dark)
+        }
     }
 }
