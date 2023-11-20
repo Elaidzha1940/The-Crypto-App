@@ -27,6 +27,7 @@
 		E48F2D982B06F6CC003EEE27 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D972B06F6CC003EEE27 /* PreviewProvider.swift */; };
 		E4E70BAE2B0A95CD0095308B /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E70BAD2B0A95CD0095308B /* LocalFileManager.swift */; };
 		E4E70BB02B0AD8FC0095308B /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E70BAF2B0AD8FC0095308B /* SearchBarView.swift */; };
+		E4E70BB22B0AE1970095308B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E70BB12B0AE1970095308B /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		E48F2D972B06F6CC003EEE27 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		E4E70BAD2B0A95CD0095308B /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		E4E70BAF2B0AD8FC0095308B /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		E4E70BB12B0AE1970095308B /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				E48F2D842B06735A003EEE27 /* Color.swift */,
 				E48F2D972B06F6CC003EEE27 /* PreviewProvider.swift */,
 				E422F1282B07031A005A7B5C /* Double.swift */,
+				E4E70BB12B0AE1970095308B /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				E48F2D8B2B067C55003EEE27 /* HomeView.swift in Sources */,
 				E422F1352B0A5749005A7B5C /* CoinImageView.swift in Sources */,
 				E48F2D762B06612B003EEE27 /* TheCryptoAppApp.swift in Sources */,
+				E4E70BB22B0AE1970095308B /* UIApplication.swift in Sources */,
 				E48F2D8F2B067E4B003EEE27 /* CircleButtonView.swift in Sources */,
 				E48F2D852B06735A003EEE27 /* Color.swift in Sources */,
 				E4E70BB02B0AD8FC0095308B /* SearchBarView.swift in Sources */,
