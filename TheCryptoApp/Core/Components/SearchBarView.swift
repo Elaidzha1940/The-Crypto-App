@@ -16,9 +16,20 @@ struct SearchBarView: View {
         
         HStack {
              Image(systemName: "magnifyingglass")
-                .foregroundColor(Color.theme.secondaryText)
+                .foregroundColor(
+                    searchText.isEmpty ? Color.theme.secondaryText : Color.theme.accent
+                )
             
             TextField("Search by name or symbol... ", text: $searchText)
+                .foregroundColor(Color.theme.accent)
+                .overlay(
+                    Image(systemName: "xmark.circle.fill")
+                        .padding()
+                        .offset(x: 10)
+                        .foregroundColor(Color.theme.accent)
+                        .opacity(searchText.isEmpty ? 0.0 : 1.0)
+                    , alignment: .trailing
+                )
         }
         .font(.system(size: 17, weight: .semibold, design: .rounded))
         .padding()
@@ -29,6 +40,7 @@ struct SearchBarView: View {
                 color: Color.theme.accent.opacity(0.2),
                 radius: 10, x: 0 ,y: 0)
         )
+        .padding()
     }
 }
 
