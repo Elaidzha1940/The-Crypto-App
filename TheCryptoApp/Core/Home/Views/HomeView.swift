@@ -3,7 +3,7 @@
 //  Project: TheCryptoApp
 //  File: HomeView.swift
 //  Created by: Elaidzha Shchukin
-//  Date:16.11.2023
+//  Date: 16.11.2023
 //
 //  */
 
@@ -38,7 +38,6 @@ struct HomeView: View {
                     portfolioCoinsList
                         .transition(.move(edge: .trailing))
                 }
-                
                 Spacer(minLength: 0)
             }
         }
@@ -89,8 +88,8 @@ extension HomeView {
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
             }
         }
-        //.listRowBackground(Color.theme.background)
         .listStyle(PlainListStyle())
+        //.listRowBackground(Color.theme.darkred)
     }
     
     private var portfolioCoinsList: some View {
