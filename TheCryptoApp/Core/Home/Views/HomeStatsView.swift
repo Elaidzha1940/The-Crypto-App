@@ -10,19 +10,13 @@
 import SwiftUI
 
 struct HomeStatsView: View {
-    let statistics: [StatisticModel] = [
-        StatisticModel(title: "Title", value: "Value", percentageChange: 10),
-        StatisticModel(title: "Title", value: "Value"),
-        StatisticModel(title: "Title", value: "Value"),
-        StatisticModel(title: "Title", value: "Value", percentageChange: -8),
-    ]
-    
+    @EnvironmentObject private var vm: HomeViewModel
     @Binding var showPortfolio: Bool
     
     var body: some View {
         
         HStack {
-            ForEach(statistics) { stat in
+            ForEach(vm.statistics) { stat in
                 StatisticView(stat: stat)
                     .frame(width: UIScreen.main.bounds.width / 3)
             }
@@ -33,6 +27,9 @@ struct HomeStatsView: View {
     }
 }
 
-#Preview {
-    HomeStatsView(showPortfolio: .constant(false))
+struct HomeStatsView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeStatsView(showPortfolio: .constant(false))
+            .environmentObject(dev.HomeVM)
+    }
 }
