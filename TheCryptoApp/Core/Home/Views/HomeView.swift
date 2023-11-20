@@ -87,6 +87,7 @@ extension HomeView {
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
             }
         }
+        .background(Color.theme.background)
         .listStyle(PlainListStyle())
     }
     
