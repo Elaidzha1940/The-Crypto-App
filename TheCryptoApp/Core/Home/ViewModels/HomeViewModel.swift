@@ -24,7 +24,8 @@ class HomeViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     
-    private let dateService = CoinDataService()
+    private let coinDataService = CoinDataService()
+    private let marketDataService = MarketDataService()
     private var cancellables = Set<AnyCancellable>()
     
     init() {
@@ -35,13 +36,19 @@ class HomeViewModel: ObservableObject {
         
         // updates allCoins
         $searchText
-            .combineLatest(dateService.$allCoins)
+            .combineLatest(coinDataService.$allCoins)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map(filteredCoins)
             .sink { [weak self] (returnedCoins) in
                 self?.allCoins = returnedCoins
             }
             .store(in: &cancellables)
+        
+        // market data service
+        marketDataService.$marketData
+            .map { (marketDataModel) -> [StatisticModel] in
+                var stats: [StatisticModel] = []
+            }
     }
     
     private func filteredCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
