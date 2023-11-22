@@ -36,7 +36,10 @@ struct CoinLogoView: View {
 
 struct CoinLogoView_Previews: PreviewProvider {
     static var previews: some View {
-        CoinLogoView(coin: dev.coin)
-
+        Group {
+            CoinLogoView(coin: dev.coin)
+            CoinLogoView(coin: dev.coin)
+                .preferredColorScheme(.dark)
+        }
     }
 }
