@@ -12,10 +12,14 @@ import SwiftUI
 struct PortfolioView: View {
     var body: some View {
         
-        VStack {
-            
-            Text("Portfolio View")
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Portfolio View")
+                }
+            }
         }
+        .navigationTitle("Edit Portfolio")
     }
 }
 
