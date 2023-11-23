@@ -37,6 +37,7 @@
 		E4E70BB02B0AD8FC0095308B /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E70BAF2B0AD8FC0095308B /* SearchBarView.swift */; };
 		E4E70BB22B0AE1970095308B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E70BB12B0AE1970095308B /* UIApplication.swift */; };
 		E4E951172B1009F400CA4FFF /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4E951152B1009F400CA4FFF /* PortfolioContainer.xcdatamodeld */; };
+		E4E951192B100B1800CA4FFF /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E951182B100B1800CA4FFF /* PortfolioDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		E4E70BAF2B0AD8FC0095308B /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		E4E70BB12B0AE1970095308B /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		E4E951162B1009F400CA4FFF /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		E4E951182B100B1800CA4FFF /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				E422F12D2B07CE04005A7B5C /* CoinDataService.swift */,
 				E422F1362B0A59C2005A7B5C /* CoinImageService.swift */,
 				E43952022B0D15A200E2222C /* MarketDataService.swift */,
+				E4E951182B100B1800CA4FFF /* PortfolioDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				E422F1372B0A59C2005A7B5C /* CoinImageService.swift in Sources */,
 				E48F2D942B06DA70003EEE27 /* CoinModel.swift in Sources */,
 				E43952072B0E467C00E2222C /* PortfolioView.swift in Sources */,
+				E4E951192B100B1800CA4FFF /* PortfolioDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
