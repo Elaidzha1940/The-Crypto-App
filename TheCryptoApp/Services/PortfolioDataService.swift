@@ -16,6 +16,8 @@ class PortfolioDataService {
     private let containerName: String = "Portfoliocontainer"
     private let entityName: String = "PortfolioEntity"
     
+    @Published var savedEntities: [PortfolioEntity] = []
+    
     init() {
         container = NSPersistentContainer(name: containerName)
         container.loadPersistentStores { _, error in
@@ -27,5 +29,21 @@ class PortfolioDataService {
     
     private func getPortfolio() {
         let request = NSFetchRequest<PortfolioEntity>(entityName: containerName)
+        do {
+           savedEntities = try container.viewContext.fetch(request)
+        } catch let error {
+            print("Error fetching Portfolio Entities. \(error)")
+        }
+    }
+    
+    private func add(coin: CoinModel, amount: Double) {
+        let entity = PortfolioEntity(context: container.viewContext)
+        entity.coinID = coin.id
+        entity.amount = amount
+        
+    }
+    
+    private func save() {
+        
     }
 }
