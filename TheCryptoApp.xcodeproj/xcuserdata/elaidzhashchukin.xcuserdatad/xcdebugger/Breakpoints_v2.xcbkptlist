@@ -14,8 +14,8 @@
             filePath = "TheCryptoApp/Core/Home/Views/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "portfolioCoinsList"
             landmarkType = "24">
          </BreakpointContent>
