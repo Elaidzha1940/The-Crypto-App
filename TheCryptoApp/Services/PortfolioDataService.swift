@@ -13,14 +13,14 @@ import CoreData
 class PortfolioDataService {
     
     private let container: NSPersistentContainer
-    private let containerName: String = "Portfoliocontainer"
+    private let containerName: String = "PortfolioContainer"
     private let entityName: String = "PortfolioEntity"
     
     @Published var savedEntities: [PortfolioEntity] = []
     
     init() {
         container = NSPersistentContainer(name: containerName)
-        container.loadPersistentStores { _, error in
+        container.loadPersistentStores { (_, error) in
             if let error = error {
                 print("Error loading Core Data. \(error)")
             }
@@ -48,7 +48,7 @@ class PortfolioDataService {
     // MARK: Private
     
     private func getPortfolio() {
-        let request = NSFetchRequest<PortfolioEntity>(entityName: containerName)
+        let request = NSFetchRequest<PortfolioEntity>(entityName: entityName)
         do {
             savedEntities = try container.viewContext.fetch(request)
         } catch let error {
@@ -60,6 +60,7 @@ class PortfolioDataService {
         let entity = PortfolioEntity(context: container.viewContext)
         entity.coinID = coin.id
         entity.amount = amount
+        applyChanges()
     }
     
     private func update(entity: PortfolioEntity, amount: Double) {
@@ -76,7 +77,7 @@ class PortfolioDataService {
         do {
             try container.viewContext.save()
         } catch let error {
-            print("Error to Core Data. \(error)")
+            print("Error saving to Core Data. \(error)")
         }
     }
     
