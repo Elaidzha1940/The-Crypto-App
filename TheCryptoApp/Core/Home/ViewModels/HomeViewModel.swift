@@ -49,10 +49,10 @@ class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
         
         // updates portfolioCoins
-         $allCoins
+        $allCoins
             .combineLatest(portfolioDataService.$savedEntities)
             .map { (coinModels, PortfolioEntities) -> [CoinModel] in
-               coinModels
+                coinModels
                     .compactMap { (coin) -> CoinModel? in
                         guard let entity =  PortfolioEntities.first(where: { $0.coinID == coin.id }) else {
                             return nil
@@ -64,7 +64,10 @@ class HomeViewModel: ObservableObject {
                 self?.portfolioCoins = returnedCoins
             }
             .store(in: &cancellables)
-
+    }
+    
+    func updatePortfolio(coin: CoinModel, amount: Double) {
+        portfolioDataService.updatePortfolio(coin: coin, amount: amount)
     }
     
     private func filteredCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
