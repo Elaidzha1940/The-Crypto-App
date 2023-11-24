@@ -11,7 +11,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var showPortfolio: Bool = false
-    @EnvironmentObject private var vm: HomeViewModel // animating rigth
+    @EnvironmentObject private var vm: HomeViewModel // animating right
     @State private var showPortfolioView: Bool = false // new sheet
     
     var body: some View {
