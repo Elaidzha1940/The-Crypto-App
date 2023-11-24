@@ -54,6 +54,7 @@ struct PortfolioView_Previews: PreviewProvider {
     }
 }
 
+
 extension PortfolioView {
     private var coinLogoList: some View {
         
@@ -143,7 +144,7 @@ extension PortfolioView {
     }
     
     private func saveButtonPressed() {
-        guard 
+        guard
             let coin = selectedCoin,
             let amount = Double(quantityText)
         else { return }
