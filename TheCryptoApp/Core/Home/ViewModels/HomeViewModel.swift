@@ -77,10 +77,9 @@ class HomeViewModel: ObservableObject {
     }
     
     private func filterAndSortCoins(text: String, coins: [CoinModel], sort: SortOption) -> [CoinModel] {
-        var filteredCoin = filteredCoins(text: text, coins: coins)
-        
-        // sort
-        return filteredCoin
+        var updatedCoins = filteredCoins(text: text, coins: coins)
+        sortCoins(sort: sort, coins: &updatedCoins)
+        return updatedCoins
     }
     
     private func filteredCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
@@ -100,17 +99,21 @@ class HomeViewModel: ObservableObject {
         return filteredCoins
     }
     
-    private func sortCoins(sort: SortOption, coin: [CoinModel]) -> [CoinModel] {
+    private func sortCoins(sort: SortOption, coins: inout [CoinModel]) {
         switch sort {
         case .rank, .holdings:
-            return coin.sorted(by: { $0.rank < $1.rank })
+             coins.sort(by: { $0.rank < $1.rank })
         case .rankReversed, .holdingsReversed:
-            return coin.sorted(by: { $0.rank > $1.rank })
+             coins.sort(by: { $0.rank > $1.rank })
         case .price:
-            return coin.sorted(by: { $0.currentPrice > $1.currentPrice })
+             coins.sort(by: { $0.currentPrice > $1.currentPrice })
         case .priceReversed:
-            return coin.sorted(by: { $0.currentPrice < $1.currentPrice })
+             coins.sort(by: { $0.currentPrice < $1.currentPrice })
         }
+    }
+    
+    private func sortPortfolioCoinsIfNeeded(coins: [CoinModel]) -> [CoinModel] {
+        
     }
     
     private func mapAllCoinsToPortfolioCoins(allCoins: [CoinModel], portfolioEntities: [PortfolioEntity]) -> [CoinModel] {
