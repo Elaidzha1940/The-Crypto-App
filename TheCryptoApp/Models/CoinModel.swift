@@ -108,7 +108,7 @@ struct CoinModel: Identifiable, Codable {
     var currentHoldingsValue: Double {
         return (currentHoldings ?? 0) * currentPrice
     }
-    
+        
     var rank: Int {
         return Int(marketCapRank ?? 0)
     }
