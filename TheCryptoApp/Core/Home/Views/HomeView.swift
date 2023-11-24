@@ -50,10 +50,10 @@ struct HomeView: View {
             }
         }
         .background(
-        NavigationLink(
-            destination: DetailView(coin: selectedCoin),
-            isActive: $showDetailView,
-            label: { EmptyView() })
+            NavigationLink(
+                destination: DetailView(coin: $selectedCoin),
+                isActive: $showDetailView,
+                label: { EmptyView() })
         )
     }
 }
@@ -103,15 +103,11 @@ extension HomeView {
     private var allCoinsList: some View {
         List {
             ForEach(vm.allCoins) { coin in
-//                NavigationLink(
-//                    destination: DetailView(coin: coin),
-//                    label: {
-                        CoinRowView(coin: coin, showHoldingsColumn: false)
-                            .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
-                            .onTapGesture {
-                                segue(coin: coin)
-                            }
-                    //})
+                CoinRowView(coin: coin, showHoldingsColumn: false)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
             }
         }
         .listStyle(PlainListStyle())
@@ -132,9 +128,9 @@ extension HomeView {
     }
     
     private func segue(coin: CoinModel) {
-        
+        selectedCoin = coin
+        showDetailView.toggle()
     }
-    
     
     private var coulmnTitels: some View {
         HStack {

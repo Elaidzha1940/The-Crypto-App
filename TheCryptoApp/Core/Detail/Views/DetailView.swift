@@ -10,17 +10,17 @@
 import SwiftUI
 
 struct DetailView: View {
-   @Binding var coin: CoinModel
+   @Binding var coin: CoinModel?
     
-    init(coin: Binding<CoinModel>) {
+    init(coin: Binding<CoinModel?>) {
         self._coin = coin
-        print("Int Detail View for \(coin.wrappedValue.name)")
+        print("Int Detail View for \(coin.wrappedValue?.name)")
     }
     
     var body: some View {
         
         VStack {
-            Text(coin.name)
+            Text(coin?.name ?? "")
         }
     }
 }
