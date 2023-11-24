@@ -23,6 +23,7 @@ struct HomeView: View {
                 .sheet(isPresented: $showPortfolioView, content: {
                     PortfolioView()
                         .environmentObject(vm)
+                        .background(Color.theme.darkgreen)
                 })
             
             // content layer

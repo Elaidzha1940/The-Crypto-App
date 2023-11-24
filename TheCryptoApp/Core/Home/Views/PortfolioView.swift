@@ -54,7 +54,6 @@ struct PortfolioView_Previews: PreviewProvider {
     }
 }
 
-
 extension PortfolioView {
     private var coinLogoList: some View {
         
