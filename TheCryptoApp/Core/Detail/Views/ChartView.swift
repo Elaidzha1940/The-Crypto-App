@@ -18,9 +18,17 @@ struct ChartView: View {
     
     var body: some View {
         
-        VStack {
-            
-            
+        Path { path in
+            for index in data.indices {
+                
+                let xPosition = UIScreen.main.bounds.width / CGFloat(data.count) *
+                CGFloat(index + 1)
+                
+                if index == 0 {
+                    path.move(to: CGPoint(x: 0, y: 0))
+                }
+                path.addLine(to: CGPoint(x: xPosition, y: 0))
+            }
         }
     }
 }
