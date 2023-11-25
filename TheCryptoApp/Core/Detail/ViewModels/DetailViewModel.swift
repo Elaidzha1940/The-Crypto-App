@@ -38,7 +38,14 @@ class DetailViewModel: ObservableObject {
     }
     
     private func mapDataToStatistics(coinDetailModel: CoinDetailModel?, coinModel: CoinModel) -> (overview: [StatisticModel], additional: [StatisticModel]) {
-        // overview
+        
+        let overviewArray = createOverviewArray(coinModel: coinModel)
+        let additionalArray = createAddiyionalArray(coinDetailModel: coinDetailModel, coinModel: coinModel)
+        
+        return (overviewArray, additionalArray)
+    }
+    
+    private func createOverviewArray(coinModel: CoinModel) -> [StatisticModel] {
         let price = coinModel.currentPrice.asCurrencyWith6Decimals()
         let prcePercentChange = coinModel.priceChangePercentage24H
         let priceStat = StatisticModel(title: "Current price", value: price, percentageChange: prcePercentChange)
@@ -56,8 +63,10 @@ class DetailViewModel: ObservableObject {
         let overviewArray: [StatisticModel] = [
             priceStat, marketCapStat, rankStat, volumeStat
         ]
-        
-        // additional
+        return overviewArray
+    }
+    
+    private func createAddiyionalArray(coinDetailModel: CoinDetailModel?, coinModel: CoinModel) -> [StatisticModel] {
         let high = coinModel.high24H?.asCurrencyWith6Decimals() ?? "n/a"
         let highStat = StatisticModel(title: "24h High", value: high)
         
@@ -65,12 +74,12 @@ class DetailViewModel: ObservableObject {
         let lowStat = StatisticModel(title: "24H low", value: low)
         
         let priceChange = coinModel.priceChange24H?.asCurrencyWith6Decimals() ?? "n/a"
-        let pricePercentChange2 = coinModel.priceChangePercentage24H
-        let priceChangeStat = StatisticModel(title: "24h Price Change", value: priceChange, percentageChange: pricePercentChange2)
+        let pricePercentChange = coinModel.priceChangePercentage24H
+        let priceChangeStat = StatisticModel(title: "24h Price Change", value: priceChange, percentageChange: pricePercentChange)
         
         let marketCapChange = "$" + (coinModel.marketCapChange24H?.formattedWithAbbreviations() ?? "")
-        let marketCapPercentChange2 = coinModel.marketCapChangePercentage24H
-        let marketCapChangeStat = StatisticModel(title: "24H Market Cap Change", value: marketCapChange, percentageChange: marketCapPercentChange2)
+        let marketCapPercentChange = coinModel.marketCapChangePercentage24H
+        let marketCapChangeStat = StatisticModel(title: "24H Market Cap Change", value: marketCapChange, percentageChange: marketCapPercentChange)
         
         let blockTime = coinDetailModel?.blockTimeInMinutes ?? 0
         let blockTimeString = blockTime == 0 ? "n/a" : "\(blockTime)"
@@ -81,9 +90,7 @@ class DetailViewModel: ObservableObject {
         
         let additionalArray: [StatisticModel] = [
             highStat, lowStat, priceChangeStat, marketCapChangeStat, blockStat, hashingStat
-            
         ]
-        
-        return (overviewArray, additionalArray)
+        return additionalArray
     }
 }

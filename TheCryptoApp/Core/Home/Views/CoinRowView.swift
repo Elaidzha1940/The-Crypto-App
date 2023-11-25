@@ -27,6 +27,7 @@ struct CoinRowView: View {
         .background(
             Color.theme.background
                 .padding(.vertical, -10)
+                .padding(.horizontal)
         )
     }
 }

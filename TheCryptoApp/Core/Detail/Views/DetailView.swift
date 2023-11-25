@@ -40,7 +40,7 @@ struct DetailView: View {
     var body: some View {
         
         ScrollView {
-            VStack(spacing: 20) {
+            VStack(alignment: .leading, spacing: 20) {
                 Text("")
                     .frame(height: 150)
                 
@@ -52,6 +52,7 @@ struct DetailView: View {
                 Divider()
                 additionalDrid
             }
+            .padding()
         }
         .navigationTitle(vm.coin.name)
     }
