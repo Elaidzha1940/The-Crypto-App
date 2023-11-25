@@ -32,10 +32,11 @@ struct DetailView: View {
     }
     
     var body: some View {
-    
-        VStack {
-            Text("hi")
+        
+        ScrollView {
+            Text("Ho")
         }
+        .navigationTitle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Title@*/Text("Title")/*@END_MENU_TOKEN@*/)
     }
 }
 

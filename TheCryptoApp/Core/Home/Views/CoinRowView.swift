@@ -25,7 +25,7 @@ struct CoinRowView: View {
         }
         .font(.system(size: 15, weight: .bold, design: .rounded))
         .background(
-            Color.theme.background.opacity(0.7)
+            Color.theme.background
                 .padding(.vertical, -10)
         )
     }
