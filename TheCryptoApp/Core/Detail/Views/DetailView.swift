@@ -9,24 +9,38 @@
 
 import SwiftUI
 
-struct DetailView: View {
-   @Binding var coin: CoinModel?
-    
-    init(coin: Binding<CoinModel?>) {
-        self._coin = coin
-        print("Int Detail View for \(coin.wrappedValue?.name)")
-    }
+struct DetailLoadingView: View {
+    @Binding var coin: CoinModel?
     
     var body: some View {
         
+        ZStack {
+            if let coin = coin {
+                DetailView(coin: coin)
+                
+            }
+        }
+    }
+}
+
+struct DetailView: View {
+    let coin: CoinModel
+    
+    init(coin: CoinModel) {
+        self.coin = coin
+        print("Int Detail View for \(coin.name)")
+    }
+    
+    var body: some View {
+    
         VStack {
-            Text(coin?.name ?? "")
+            Text(coin.name)
         }
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(coin: .constant(dev.coin))
+        DetailView(coin: dev.coin)
     }
 }
