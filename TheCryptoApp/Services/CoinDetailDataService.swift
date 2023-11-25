@@ -12,26 +12,27 @@ import Combine
 
 class CoinDetailDataService {
     
-    @Published var allCoins: [CoinModel] = []
+    @Published var coinDetails: CoinDetailModel? = nil
     var cancellables = Set<AnyCancellable>()
     
-    var coinSubscribtion: AnyCancellable?
+    var coinDetailSubscribtion: AnyCancellable?
+    let coin: CoinModel
     
-    init() {
+    init(coin: CoinModel) {
+        self.coin = coin
         getCoinDetails()
     }
     
     func getCoinDetails() {
         
-        guard let url = URL(string:  "https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false")
+        guard let url = URL(string:  "https://api.coingecko.com/api/v3/coins/\(coin.id)?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false")
         else { return }
         
-        coinSubscribtion = NetworkingManager.download(url: url)
-        
-            .decode(type: [CoinModel].self, decoder: JSONDecoder())
-            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] (returnedCoins) in
-                self?.allCoins = returnedCoins
-                self?.coinSubscribtion?.cancel()
+        coinDetailSubscribtion = NetworkingManager.download(url: url)
+            .decode(type: CoinDetailModel.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] (returnedCoinDetails) in
+                self?.coinDetails = returnedCoinDetails
+                self?.coinDetailSubscribtion?.cancel()
             })
     }
 }
