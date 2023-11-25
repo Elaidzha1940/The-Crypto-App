@@ -119,7 +119,7 @@ import Foundation
 
 
 struct CoinDetailModel: Codable {
-    let id, symbol, name, webSlug: String?
+    let id, symbol, name: String?
     let blockTimeInMinutes: Int?
     let hashingAlgorithm: String?
     let description: Description?
