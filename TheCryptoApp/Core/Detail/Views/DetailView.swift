@@ -76,7 +76,7 @@ extension DetailView {
     private var navigationBarTrailingItems: some View {
         HStack {
             Text(vm.coin.symbol.uppercased())
-                .font(.system(size: 20, weight: .bold, design: .rounded))
+                .font(.system(size: 18, weight: .bold, design: .rounded))
             .foregroundColor(Color.theme.secondaryText)
             CoinImageView(coin: vm.coin)
                 .frame(width: 25, height: 25)

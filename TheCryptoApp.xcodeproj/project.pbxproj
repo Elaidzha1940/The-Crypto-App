@@ -22,6 +22,7 @@
 		E43952072B0E467C00E2222C /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43952062B0E467C00E2222C /* PortfolioView.swift */; };
 		E43952092B0E61E000E2222C /* XMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43952082B0E61E000E2222C /* XMarkButton.swift */; };
 		E439520B2B0E664B00E2222C /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439520A2B0E664B00E2222C /* CoinLogoView.swift */; };
+		E44B758A2B12643500535728 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B75892B12643500535728 /* ChartView.swift */; };
 		E45722192B105E2D005A09EF /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45722182B105E2D005A09EF /* HapticManager.swift */; };
 		E48F2D762B06612B003EEE27 /* TheCryptoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D752B06612B003EEE27 /* TheCryptoAppApp.swift */; };
 		E48F2D782B06612B003EEE27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F2D772B06612B003EEE27 /* ContentView.swift */; };
@@ -61,6 +62,7 @@
 		E43952062B0E467C00E2222C /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
 		E43952082B0E61E000E2222C /* XMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMarkButton.swift; sourceTree = "<group>"; };
 		E439520A2B0E664B00E2222C /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
+		E44B75892B12643500535728 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		E45722182B105E2D005A09EF /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		E48F2D722B06612B003EEE27 /* TheCryptoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCryptoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48F2D752B06612B003EEE27 /* TheCryptoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCryptoAppApp.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				E4CE35892B11173100D35620 /* DetailView.swift */,
+				E44B75892B12643500535728 /* ChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				E4E951172B1009F400CA4FFF /* PortfolioContainer.xcdatamodeld in Sources */,
 				E43379332B0BB547009F273B /* StatisticModel.swift in Sources */,
 				E43952032B0D15A200E2222C /* MarketDataService.swift in Sources */,
+				E44B758A2B12643500535728 /* ChartView.swift in Sources */,
 				E422F12E2B07CE04005A7B5C /* CoinDataService.swift in Sources */,
 				E43952092B0E61E000E2222C /* XMarkButton.swift in Sources */,
 				E48F2D962B06F5FF003EEE27 /* CoinRowView.swift in Sources */,
