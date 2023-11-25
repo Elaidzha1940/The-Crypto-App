@@ -24,7 +24,12 @@ struct DetailLoadingView: View {
 }
 
 struct DetailView: View {
-    @StateObject var vm: DetailViewModel
+    @StateObject private var vm: DetailViewModel
+    private let columns: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        
+    ]
     
     init(coin: CoinModel) {
         _vm = StateObject(wrappedValue: DetailViewModel(coin: coin))
@@ -34,14 +39,43 @@ struct DetailView: View {
     var body: some View {
         
         ScrollView {
-            Text("Ho")
+            VStack(spacing: 20) {
+                Text("")
+                    .frame(height: 150)
+                
+                Text("Overview")
+                    .font(.system(size: 30, weight: .heavy, design: .default))
+                    .foregroundColor(Color.theme.accent)
+                    .frame(width: .infinity, alignment: .leading)
+                
+                Divider()
+                
+                LazyVGrid(
+                    columns: columns,
+                    alignment: .center,
+                    spacing: nil,
+                    pinnedViews: [],
+                    content: {
+                        Text("ff")
+                        Text("ff")
+                    })
+                
+                Text("Additional Details")
+                    .font(.system(size: 30, weight: .heavy, design: .default))
+                    .foregroundColor(Color.theme.accent)
+                    .frame(width: .infinity, alignment: .leading)
+                
+                Divider()
+            }
         }
-        .navigationTitle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Title@*/Text("Title")/*@END_MENU_TOKEN@*/)
+        .navigationTitle(vm.coin.name)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(coin: dev.coin)
+        NavigationView {
+            DetailView(coin: dev.coin)
+        }
     }
 }
