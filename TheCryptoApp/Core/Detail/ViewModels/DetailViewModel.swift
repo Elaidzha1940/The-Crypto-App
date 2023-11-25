@@ -29,7 +29,7 @@ class DetailViewModel: ObservableObject {
         
         coinDetailService.$coinDetails
             .combineLatest($coin)
-            .map({ (coinDetailModel) -> (overview: [StatisticModel], additional: [StatisticModel]) in
+            .map({ (coinDetailModel, coinModel) -> (overview: [StatisticModel], additional: [StatisticModel]) in
                 
                 // overview
                 let price = coinModel.currentPrice.asCurrencyWith6Decimals()
@@ -57,24 +57,31 @@ class DetailViewModel: ObservableObject {
                 let low = coinModel.low24H?.asCurrencyWith6Decimals() ?? "n/a"
                 let lowStat = StatisticModel(title: "24H low", value: low)
                 
-                let prceChange = coinModel.priceChange24H?.asCurrencyWith6Decimals() ?? "n/a"
-                let prcePercentChange2 = coinModel.priceChangePercentage24H
-                let priceChangeStat = StatisticModel(title: "24H Price Change", value: priceChange, percentageChange: prcePercentChange2)
+                let priceChange = coinModel.priceChange24H?.asCurrencyWith6Decimals() ?? "n/a"
+                let pricePercentChange2 = coinModel.priceChangePercentage24H
+                let priceChangeStat = StatisticModel(title: "24h Price Change", value: priceChange, percentageChange: pricePercentChange2)
                 
                 let marketCapChange = "$" + (coinModel.marketCapChange24H?.formattedWithAbbreviations() ?? "")
-                let marketCapPercentChange2 = coinModel.marketCapChangePercentage24
+                let marketCapPercentChange2 = coinModel.marketCapChangePercentage24H
                 let marketCapChangeStat = StatisticModel(title: "24H Market Cap Change", value: marketCapChange, percentageChange: marketCapPercentChange2)
                 
-                let blockTime = coinDetailModel.blockTimeInMinutes ?? 0
+                let blockTime = coinDetailModel?.blockTimeInMinutes ?? 0
                 let blockTimeString = blockTime == 0 ? "n/a" : "\(blockTime)"
                 let blockStat = StatisticModel(title: "Block Time", value: blockTimeString)
                 
-                return ([overviewArray], [])
+                let hashing = coinDetailModel?.hashingAlgorithm ?? "n/a"
+                let hashingStat = StatisticModel(title: "Hashing Algorithm", value: hashing)
+                
+                let additionalArray: [StatisticModel] = [
+                highStat, lowStat, priceChangeStat, marketCapChangeStat, blockStat, hashingStat
+                
+                ]
+                
+                return (overviewArray, additionalArray)
             })
-            .sink { (returnedArrays) in
-                print("Recievd coin detail data")
-                print(returnedArrays.overview)
-                print(returnedArrays.additional)
+            .sink { [ weak self ] (returnedArrays) in
+                self?.overviewStatistics = returnedArrays.overview
+                self?.additionalStatistics = returnedArrays.additional
             }
             .store(in: &cancellables)
     }
