@@ -33,12 +33,12 @@ class DetailViewModel: ObservableObject {
                 
                 // overview
                 let price = coinModel.currentPrice.asCurrencyWith6Decimals()
-                let prceChange = coinModel.priceChangePercentage24H
-                let priceStat = StatisticModel(title: "Current price", value: price, percentageChange: priceChange)
+                let prcePercentChange = coinModel.priceChangePercentage24H
+                let priceStat = StatisticModel(title: "Current price", value: price, percentageChange: prcePercentChange)
                 
                 let marketCap = "$" + (coinModel.marketCap?.formattedWithAbbreviations() ?? "")
-                let marketcapChange = coinModel.marketCapChangePercentage24H
-                let marketCapStat = StatisticModel(title: "Market Capitalization", value: marketCap, percentageChange: marketcapChange)
+                let marketcapPercentChange = coinModel.marketCapChangePercentage24H
+                let marketCapStat = StatisticModel(title: "Market Capitalization", value: marketCap, percentageChange: marketcapPercentChange)
                 
                 let rank = "\(coinModel.rank)"
                 let rankStat = StatisticModel(title: "Rank", value: rank)
@@ -58,8 +58,16 @@ class DetailViewModel: ObservableObject {
                 let lowStat = StatisticModel(title: "24H low", value: low)
                 
                 let prceChange = coinModel.priceChange24H?.asCurrencyWith6Decimals() ?? "n/a"
+                let prcePercentChange2 = coinModel.priceChangePercentage24H
+                let priceChangeStat = StatisticModel(title: "24H Price Change", value: priceChange, percentageChange: prcePercentChange2)
                 
-            
+                let marketCapChange = "$" + (coinModel.marketCapChange24H?.formattedWithAbbreviations() ?? "")
+                let marketCapPercentChange2 = coinModel.marketCapChangePercentage24
+                let marketCapChangeStat = StatisticModel(title: "24H Market Cap Change", value: marketCapChange, percentageChange: marketCapPercentChange2)
+                
+                let blockTime = coinDetailModel.blockTimeInMinutes ?? 0
+                let blockTimeString = blockTime == 0 ? "n/a" : "\(blockTime)"
+                let blockStat = StatisticModel(title: "Block Time", value: blockTimeString)
                 
                 return ([overviewArray], [])
             })
