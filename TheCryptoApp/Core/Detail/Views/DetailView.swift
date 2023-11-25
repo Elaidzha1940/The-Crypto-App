@@ -55,6 +55,11 @@ struct DetailView: View {
             .padding()
         }
         .navigationTitle(vm.coin.name)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                navigationBarTrailingItems
+            }
+        }
     }
 }
 
@@ -68,9 +73,19 @@ struct DetailView_Previews: PreviewProvider {
 
 extension DetailView {
     
+    private var navigationBarTrailingItems: some View {
+        HStack {
+            Text(vm.coin.symbol.uppercased())
+                .font(.system(size: 20, weight: .bold, design: .rounded))
+            .foregroundColor(Color.theme.secondaryText)
+            CoinImageView(coin: vm.coin)
+                .frame(width: 25, height: 25)
+        }
+    }
+    
     private var overViewTitle: some View {
         Text("Overview")
-            .font(.system(size: 30, weight: .heavy, design: .default))
+            .font(.system(size: 30, weight: .bold, design: .rounded))
             .foregroundColor(Color.theme.accent)
             .frame(width: .infinity, alignment: .leading)
     }
@@ -78,7 +93,7 @@ extension DetailView {
     private var additionalTitle: some View {
         
         Text("Additional Details")
-            .font(.system(size: 30, weight: .heavy, design: .default))
+            .font(.system(size: 30, weight: .bold, design: .rounded))
             .foregroundColor(Color.theme.accent)
             .frame(width: .infinity, alignment: .leading)
     }
