@@ -40,19 +40,28 @@ struct DetailView: View {
     var body: some View {
         
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                Text("")
-                    .frame(height: 150)
+            VStack {
+                ChartView(coin: vm.coin)
+                    .padding(.vertical)
                 
-                overViewTitle
-                Divider()
-                overviewGrid
-              
-                additionalTitle
-                Divider()
-                additionalDrid
+                VStack(alignment: .leading, spacing: 20) {
+                    overViewTitle
+                    Divider()
+                    
+                    ZStack {
+                        if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
+                            Text(coinDescription)
+                        }
+                    }
+                    
+                    overviewGrid
+                    
+                    additionalTitle
+                    Divider()
+                    additionalDrid
+                }
+                .padding()
             }
-            .padding()
         }
         .navigationTitle(vm.coin.name)
         .toolbar {
@@ -77,7 +86,7 @@ extension DetailView {
         HStack {
             Text(vm.coin.symbol.uppercased())
                 .font(.system(size: 18, weight: .bold, design: .rounded))
-            .foregroundColor(Color.theme.secondaryText)
+                .foregroundColor(Color.theme.secondaryText)
             CoinImageView(coin: vm.coin)
                 .frame(width: 25, height: 25)
         }
@@ -87,7 +96,7 @@ extension DetailView {
         Text("Overview")
             .font(.system(size: 30, weight: .bold, design: .rounded))
             .foregroundColor(Color.theme.accent)
-            //.frame(width: .infinity, alignment: .leading)
+        //.frame(width: .infinity, alignment: .leading)
     }
     
     private var additionalTitle: some View {
@@ -95,7 +104,6 @@ extension DetailView {
         Text("Additional Details")
             .font(.system(size: 30, weight: .bold, design: .rounded))
             .foregroundColor(Color.theme.accent)
-            //.frame(width: .infinity, alignment: .leading)
     }
     
     private var overviewGrid: some View {
