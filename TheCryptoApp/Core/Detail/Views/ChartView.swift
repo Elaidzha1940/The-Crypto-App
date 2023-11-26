@@ -10,12 +10,14 @@
 import SwiftUI
 
 struct ChartView: View {
-    let data: [Double]
-    let maxY: Double
-    let minY: Double
-    let lineColor: Color
-    let startingDate: Date
-    let endingDate: Date
+    private let data: [Double]
+    private let maxY: Double
+    private let minY: Double
+    private let lineColor: Color
+    private let startingDate: Date
+    private let endingDate: Date
+    
+    @State private var percentage: CGFloat = 0
     
     init(coin: CoinModel) {
         data = coin.sparklineIn7D?.price ?? []
@@ -35,10 +37,21 @@ struct ChartView: View {
             chartView
                 .frame(height: 250)
                 .background(chartBackground)
-                .overlay(hartYAxis, alignment: .leading)
+                .overlay(hartYAxis.padding(.horizontal, 4), alignment: .leading)
             
             chartDateLabels
+                .padding(.horizontal, 4)
         }
+        .font(.system(size: 15, weight: .regular, design: .rounded))
+        .foregroundColor(Color.theme.secondaryText)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                withAnimation(.linear(duration: 2.0)) {
+                    percentage = 1.0
+                }
+            }
+        }
+        
     }
 }
 
@@ -68,7 +81,12 @@ extension ChartView {
                     path.addLine(to: CGPoint(x: xPosition, y: yPosition))
                 }
             }
-            .stroke(lineColor, style: StrokeStyle(lineWidth: 3 , lineCap: .round, lineJoin: .round))
+            .trim(from: 0, to: percentage)
+            .stroke(lineColor, style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round))
+            .shadow(color: lineColor, radius: 10, x: 10, y: 10)
+            .shadow(color: lineColor.opacity(0.5), radius: 10, x: 10, y: 20)
+            .shadow(color: lineColor.opacity(0.3), radius: 10, x: 10, y: 30)
+            .shadow(color: lineColor.opacity(0.1), radius: 10, x: 10, y: 40)
         }
     }
     
@@ -86,7 +104,7 @@ extension ChartView {
         VStack {
             Text(maxY.formattedWithAbbreviations())
             Spacer()
-            Text(((maxY + minY) / 2).formattedWithAbbreviations())
+            Text(((maxY + minY) / 3).formattedWithAbbreviations())
             Spacer()
             Text(minY.formattedWithAbbreviations())
         }
