@@ -49,35 +49,20 @@ struct DetailView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     overViewTitle
                     Divider()
-                    
-                    ZStack {
-                        if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
-                            VStack(alignment: .leading) {
-                                Text(coinDescription)
-                                    .lineLimit(showFullDescription ? nil : 3)
-                                    .font(.system(size: 18, weight: .medium, design: .rounded))
-                                    .foregroundColor(Color.theme.secondaryText)
-                                
-                                Button(action: {
-                                    withAnimation(.easeInOut) {
-                                        showFullDescription.toggle()
-                                    }
-                                }, label: {
-                                    Text("Read more...")
-                                        .font(.system(size: 16, weight: .medium, design: .rounded))
-                                        .padding(.vertical, 1)
-                                })
-                                .accentColor(.blue)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    }
-                    
+                    descriptionSection
                     overviewGrid
-                    
                     additionalTitle
                     Divider()
                     additionalDrid
+                    
+                    ZStack {
+                        if let websiteString = vm.websiteURL,
+                           let url = URL(string: websiteString) {
+                            Link("Website", destination: url)
+                        }
+                    }
+                    .accentColor(.blue)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding()
             }
@@ -115,7 +100,31 @@ extension DetailView {
         Text("Overview")
             .font(.system(size: 30, weight: .bold, design: .rounded))
             .foregroundColor(Color.theme.accent)
-        //.frame(width: .infinity, alignment: .leading)
+    }
+    
+    private var descriptionSection: some View {
+        ZStack {
+            if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
+                VStack(alignment: .leading) {
+                    Text(coinDescription)
+                        .lineLimit(showFullDescription ? nil : 3)
+                        .font(.system(size: 18, weight: .medium, design: .rounded))
+                        .foregroundColor(Color.theme.secondaryText)
+                    
+                    Button(action: {
+                        withAnimation(.easeInOut) {
+                            showFullDescription.toggle()
+                        }
+                    }, label: {
+                        Text(showFullDescription ? "..Less" : "Read more...")
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .padding(.vertical, 1)
+                    })
+                    .accentColor(.blue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
     }
     
     private var additionalTitle: some View {
