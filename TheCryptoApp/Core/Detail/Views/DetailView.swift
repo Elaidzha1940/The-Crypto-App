@@ -25,6 +25,8 @@ struct DetailLoadingView: View {
 
 struct DetailView: View {
     @StateObject private var vm: DetailViewModel
+    @State private var showFullDescription: Bool = false
+    
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -50,7 +52,24 @@ struct DetailView: View {
                     
                     ZStack {
                         if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
-                            Text(coinDescription)
+                            VStack(alignment: .leading) {
+                                Text(coinDescription)
+                                    .lineLimit(showFullDescription ? nil : 3)
+                                    .font(.system(size: 18, weight: .medium, design: .rounded))
+                                    .foregroundColor(Color.theme.secondaryText)
+                                
+                                Button(action: {
+                                    withAnimation(.easeInOut) {
+                                        showFullDescription.toggle()
+                                    }
+                                }, label: {
+                                    Text("Read more...")
+                                        .font(.system(size: 16, weight: .medium, design: .rounded))
+                                        .padding(.vertical, 1)
+                                })
+                                .accentColor(.blue)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
                     }
                     
