@@ -23,6 +23,7 @@ struct CoinRowView: View {
             }
             rightColumn
         }
+        .listRowInsets(EdgeInsets())
         .font(.system(size: 15, weight: .bold, design: .rounded))
         .background(
             Color.theme.background

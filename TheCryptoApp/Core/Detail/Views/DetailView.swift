@@ -87,7 +87,7 @@ extension DetailView {
         Text("Overview")
             .font(.system(size: 30, weight: .bold, design: .rounded))
             .foregroundColor(Color.theme.accent)
-            .frame(width: .infinity, alignment: .leading)
+            //.frame(width: .infinity, alignment: .leading)
     }
     
     private var additionalTitle: some View {
@@ -95,7 +95,7 @@ extension DetailView {
         Text("Additional Details")
             .font(.system(size: 30, weight: .bold, design: .rounded))
             .foregroundColor(Color.theme.accent)
-            .frame(width: .infinity, alignment: .leading)
+            //.frame(width: .infinity, alignment: .leading)
     }
     
     private var overviewGrid: some View {
