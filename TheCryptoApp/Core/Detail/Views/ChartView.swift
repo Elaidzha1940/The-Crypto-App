@@ -83,9 +83,9 @@ extension ChartView {
             .trim(from: 0, to: percentage)
             .stroke(lineColor, style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round))
             .shadow(color: lineColor, radius: 10, x: 10, y: 10)
-            .shadow(color: lineColor.opacity(0.5), radius: 5, x: 10, y: 20)
-            .shadow(color: lineColor.opacity(0.3), radius: 5, x: 10, y: 30)
-            .shadow(color: lineColor.opacity(0.1), radius: 5, x: 10, y: 40)
+            .shadow(color: lineColor.opacity(0.5), radius: 10, x: 10, y: 20)
+            .shadow(color: lineColor.opacity(0.3), radius: 10, x: 10, y: 30)
+            .shadow(color: lineColor.opacity(0.1), radius: 10, x: 10, y: 40)
         }
     }
     
