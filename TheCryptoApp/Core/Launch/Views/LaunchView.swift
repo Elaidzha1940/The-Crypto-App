@@ -26,7 +26,7 @@ struct LaunchView: View {
             
             Image("logo")
                 .resizable()
-                .frame(width: 880, height: 880)
+                .frame(width: 970, height: 970)
             
             ZStack {
                 if showLoadingText {
@@ -42,7 +42,7 @@ struct LaunchView: View {
                     .transition(AnyTransition.scale.animation(.easeIn))
                 }
             }
-            .offset(y: 210)
+            .offset(y: 225)
         }
         .onAppear {
             showLoadingText.toggle()
