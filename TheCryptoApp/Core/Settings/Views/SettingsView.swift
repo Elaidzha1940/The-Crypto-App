@@ -19,15 +19,26 @@ struct SettingsView: View {
     var body: some View {
         
         NavigationView {
-            List {
-                googleSection
-                coinGeckoSection
-                developerSection
-                applicationSection
+            ZStack {
+                // color layer
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                // content layer
+                List {
+                    googleSection
+                        .listRowBackground(Color.theme.background.opacity(0.7))
+                    coinGeckoSection
+                        .listRowBackground(Color.theme.background.opacity(0.7))
+                    developerSection
+                        .listRowBackground(Color.theme.background.opacity(0.7))
+                    applicationSection
+                        .listRowBackground(Color.theme.background.opacity(0.7))
+                }
             }
+            .listStyle(GroupedListStyle())
             .accentColor(.blue)
             .font(.system(size: 18, weight: .semibold, design: .rounded))
-            .listStyle(GroupedListStyle())
             .navigationTitle("Settings")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
