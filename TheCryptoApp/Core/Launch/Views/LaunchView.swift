@@ -16,7 +16,7 @@ struct LaunchView: View {
     
     @State private var counter: Int = 0
     @State private var loops: Int = 0
-    @State var showLaunchView: Bool = true
+    @Binding var showLaunchView: Bool
     
     var body: some View {
         
@@ -53,6 +53,9 @@ struct LaunchView: View {
                 if counter == lastIndex {
                     counter = 0
                     loops += 1
+                    if loops >= 2 {
+                        showLaunchView = false
+                    }
                 } else {
                     counter += 1
                 }
@@ -62,5 +65,5 @@ struct LaunchView: View {
 }
 
 #Preview {
-    LaunchView()
+    LaunchView(showLaunchView: .constant(true))
 }
