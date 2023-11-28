@@ -24,8 +24,8 @@ Well, a bit about tech and what I’ve done with:
 <img src="https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/f0d7ddc2-7d3a-49f2-9044-04f45a09144d" width="130" height="270">
 <img src="https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/29ccc69d-fde8-49b3-880e-89d466449a3b" width="130" height="270">
 <img src="https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/4fd9fe71-f5c8-42cd-a445-d59c3c30fbbc" width="130" height="270">
-<img src="https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/d17db925-8469-4e7f-bd52-72fba2efdf97" width="130" height="400">
+<img src="https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/d17db925-8469-4e7f-bd52-72fba2efdf97" width="130" height="270">
 
-<img src="https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/359c72de-6a79-4739-a556-1c3a5c60b4fa" width="400" height="300">
+<img src="https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/359c72de-6a79-4739-a556-1c3a5c60b4fa" width="380" height="170">
 
 
