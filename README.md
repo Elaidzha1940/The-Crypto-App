@@ -19,4 +19,4 @@ Well, a bit about tech and what I’ve done with:
 - Custom Line Chart
 - Expendable collapsable description
 
-![IMAGE 2023-11-28 19:14:10](https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/359c72de-6a79-4739-a556-1c3a5c60b4fa)
+![<img src="https://your-image-url.type" width="100" height="100">](https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/359c72de-6a79-4739-a556-1c3a5c60b4fa)
