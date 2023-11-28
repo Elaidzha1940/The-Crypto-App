@@ -18,3 +18,5 @@ Well, a bit about tech and what I’ve done with:
 - Grid - Updating
 - Custom Line Chart
 - Expendable collapsable description
+
+![Crypto Tracker App](https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/8c72e63b-0f75-45d2-8eec-6716b846e2ef)
