@@ -19,6 +19,4 @@ Well, a bit about tech and what I’ve done with:
 - Custom Line Chart
 - Expendable collapsable description
 
-![Crypto Tracker App](https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/8c72e63b-0f75-45d2-8eec-6716b846e2ef)
-
 ![IMAGE 2023-11-28 19:14:10](https://github.com/Elaidzha1940/The-Crypto-App/assets/64445918/359c72de-6a79-4739-a556-1c3a5c60b4fa)
