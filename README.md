@@ -1,11 +1,12 @@
-# The-Crypto-App
+⌨️ Crypto Tracker App.
+========
+
 Build SwiftUI Crypto Tracker App with MVVM, Core Data, Combine, and API requests.
+--------
 
-For the last month I was busy with Crypto Tracker App. 
-Finally it’s done ✔️ 
-I’m really happy to share it here. 
+Tech:
+--------
 
-Well, a bit about tech and what I’ve done with: 
 - Swift and SwiftUI 
 - MVVM 
 - Model based on JSON & Market Statistics from API
